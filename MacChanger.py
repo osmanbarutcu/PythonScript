@@ -1,5 +1,6 @@
 import subprocess as sp
 import optparse
+import re
 
 def GetUserInput():
     parse_opject =optparse.OptionParser()
@@ -12,8 +13,20 @@ def ChangeMacAddress(interFace,macAddress):
     sp.call(["ifconfig"],interFace, "hw", "ether",macAddress)
     sp.call(["ifconfig"],interFace, "up")
 
+def ControlNewMac(interface):
+    ifconfig=sp.check_output(["ifconfig",interface])
+    newMac=re.search(r"\w\w:\w\w:\w\w:\w\w:\w\w:\w\w",ifconfig)
+    if newMac:
+        return newMac.group(0)
+    else:
+        return None
 
 print("Mac Changer Started!")
 (userInput,arguments)=GetUserInput()
-interFace = userInput.interFace
-macAddress = userInput.macAddress
+ChangeMacAddress(userInput.interFace,userInput.macAddress)
+finalizedMac=ControlNewMac(userInput.interFace)
+
+if finalizedMac == userInput.macAddress:
+    print("Success")
+else:
+    print("Error")
