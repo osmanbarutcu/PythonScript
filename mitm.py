@@ -37,15 +37,14 @@ def GetUserInput():
     parseOpject.add_option(
         "-g", "--gateway", dest="gatewayIp", help="Enter Gateway IP")
 
-    options = parseOpject.parse_args()[0]
+    options, _ = parseOpject.parse_args()
 
-    if not options.targetIp:
-        print("Enter Target IP")
-
-    if not options.gatewayIp:
-        print("Enter Gateway IP")
+    if not options.targetIp or not options.gatewayIp:
+        parseOpject.error(
+            "Please provide both target and gateway IP addresses.")
 
     return options
+
 
 
 number = 0
