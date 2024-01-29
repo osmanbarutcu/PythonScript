@@ -1,6 +1,15 @@
-import pywhatkit as kit
+# Importing the Required Library
+import pywhatkit
 
-try:
-    kit.sendwhatmsg("+905423681864", "Bu mesaj python ile otomatik olarak oluşturulmuştur.", 10, 25)
-except:
-    print("Mesaj gönderilirken bir hata oluştu!")
+# Defining the Phone Number and Message
+phone_number = "+905423681864"
+message = "message"
+
+# Sending the WhatsApp Message
+pywhatkit.sendwhatmsg_instantly(phone_number, message)
+
+# Displaying a Success Message
+print("WhatsApp message sent!")
+
+
+# https://docs.ultramsg.com - UltraMsg Documentation - UltraMsg is a Python library for sending messages to WhatsApp, Telegram, Discord, Slack, and more.
