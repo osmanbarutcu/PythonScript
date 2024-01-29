@@ -3,7 +3,7 @@ import random
 def generate_phone_numbers(num_numbers=1000):
     phone_numbers = []
     for _ in range(num_numbers):
-        phone_number = "05" + "".join(str(random.randint(0, 9)) for _ in range(9))
+        phone_number = "5" + "".join(str(random.randint(0, 9)) for _ in range(9))
         phone_numbers.append(phone_number)
     return phone_numbers
 
