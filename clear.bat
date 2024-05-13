@@ -10,6 +10,7 @@ echo Lutfen islemin tamamlanmasini bekleyin.
 echo.
 echo -----------------------------------
 echo.
+timeout /t 2 
 
 taskkill /im explorer.exe /f 
 taskkill /im bittorrent.exe /f 
